@@ -399,7 +399,27 @@ if [ -f version ]; then
   ui_printfile version;
   ui_print " ";
 fi;
-ui_print " " "AnyKernel3 by osm0sis @ xda-developers" " " " ";
+ui_print "AnyKernel3 by osm0sis @ xda-developers";
+ui_print "";
+ui_print ""
+ui_print "  __      __.__    .__  __           ";
+ui_print " /  \    /  \  |__ |__|/  |_  ____   ";
+ui_print " \   \/\/   /  |  \|  \   __\/ __ \  ";
+ui_print "  \        /|   Y  \  ||  | \  ___/  ";
+ui_print "   \__/\  / |___|  /__||__|  \___  > ";
+ui_print "        \/       \/              \/  ";
+ui_print "    __      __      .__   _____      ";
+ui_print "   /  \    /  \____ |  |_/ ____\     ";
+ui_print "   \   \/\/   /  _ \|  |\   __\      ";
+ui_print "    \        (  <_> )  |_|  |        ";
+ui_print "     \__/\  / \____/|____/__|        ";
+ui_print "          \/                         ";
+ui_print "                                     ";
+ui_print "          S9/S9+/N9 Kernel           ";
+ui_print "                 by                  ";
+ui_print "              yarpiin                ";
+ui_print " ";
+ui_print " ";
 
 setup_env;
 
