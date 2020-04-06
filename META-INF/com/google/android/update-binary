@@ -223,6 +223,48 @@ do_devicecheck() {
     abort " " "Unsupported device. Aborting...";
   fi;
 }
+do_starlte() {
+  device=$(getprop ro.product.device 2>/dev/null);
+  product=$(getprop ro.build.product 2>/dev/null);
+  vendordevice=$(getprop ro.product.vendor.device 2>/dev/null);
+  vendorproduct=$(getprop ro.vendor.product.device 2>/dev/null);
+    for devicename in $device $product $vendordevice $vendorproduct; do
+      if [ "$devicename" == "starlte" ]; then
+        ui_print "Looking for starlte kernel files...";
+        cp -f $AKHOME/kernel/G960/zImage $AKHOME;
+        cp -f $AKHOME/kernel/G960/zImage-dtb $AKHOME;
+        break 2;
+      fi;
+    done;
+}
+do_star2lte() {
+  device=$(getprop ro.product.device 2>/dev/null);
+  product=$(getprop ro.build.product 2>/dev/null);
+  vendordevice=$(getprop ro.product.vendor.device 2>/dev/null);
+  vendorproduct=$(getprop ro.vendor.product.device 2>/dev/null);
+    for devicename in $device $product $vendordevice $vendorproduct; do
+      if [ "$devicename" == "star2lte" ]; then
+        ui_print "Looking for star2lte kernel files...";
+        cp -f $AKHOME/kernel/G965/zImage $AKHOME;
+        cp -f $AKHOME/kernel/G965/zImage-dtb $AKHOME;
+        break 2;
+      fi;
+    done;
+}
+do_crownlte() {
+  device=$(getprop ro.product.device 2>/dev/null);
+  product=$(getprop ro.build.product 2>/dev/null);
+  vendordevice=$(getprop ro.product.vendor.device 2>/dev/null);
+  vendorproduct=$(getprop ro.vendor.product.device 2>/dev/null);
+    for devicename in $device $product $vendordevice $vendorproduct; do
+      if [ "$devicename" == "crownlte" ]; then
+        ui_print "Looking for crownlte kernel files...";
+        cp -f $AKHOME/kernel/N960/zImage $AKHOME;
+        cp -f $AKHOME/kernel/N960/zImage-dtb $AKHOME;
+        break 2;
+      fi;
+    done;
+}
 int2ver() {
   if $BB [ "$1" -eq "$1" ] 2>/dev/null; then
     echo "$1.0.0";
@@ -419,11 +461,15 @@ ui_print "          S9/S9+/N9 Kernel           ";
 ui_print "                 by                  ";
 ui_print "              yarpiin                ";
 ui_print " ";
+ui_print "AnyKernel3 by osm0sis @ xda-developers";
 ui_print " ";
 
 setup_env;
 
 do_devicecheck;
+do_starlte;
+do_star2lte;
+do_crownlte;
 do_versioncheck;
 do_levelcheck;
 
