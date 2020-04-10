@@ -29,12 +29,25 @@ ramdisk_compression=auto;
 # import patching functions/variables - see for reference
 . tools/ak3-core.sh;
 
-
 ## AnyKernel file attributes
 # set permissions/ownership for included ramdisk files
+set_perm_recursive 0 0 755 644 $ramdisk/*;
+set_perm_recursive 0 0 750 750 $ramdisk/init* $ramdisk/sbin;
 
 ## AnyKernel install
 dump_boot;
+
+# Patch fstab
+mount -o remount,rw /vendor;
+
+if [ ! -e /vendor/etc/fstab.samsungexynos9810~ ]; then
+	backup_file /vendor/etc/fstab.samsungexynos9810;
+fi;
+
+patch_fstab /vendor/etc/fstab.samsungexynos9810 /data ext4 flags "forceencrypt=footer" "encryptable=footer";
+
+# Move device dtb
+mv -f $home/dtb.img $split_img/extra;
 
 write_boot;
 ## end install
