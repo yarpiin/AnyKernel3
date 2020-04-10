@@ -231,8 +231,8 @@ do_starlte() {
     for devicename in $device $product $vendordevice $vendorproduct; do
       if [ "$devicename" == "starlte" ]; then
         ui_print "Looking for starlte kernel files...";
-        cp -f $AKHOME/kernel/G960/zImage $AKHOME;
-        cp -f $AKHOME/kernel/G960/zImage-dtb $AKHOME;
+        cp -f $AKHOME/Kernel/G960/zImage $AKHOME;
+        cp -f $AKHOME/Kernel/G960/dtb.img $AKHOME;
         break 2;
       fi;
     done;
@@ -245,8 +245,8 @@ do_star2lte() {
     for devicename in $device $product $vendordevice $vendorproduct; do
       if [ "$devicename" == "star2lte" ]; then
         ui_print "Looking for star2lte kernel files...";
-        cp -f $AKHOME/kernel/G965/zImage $AKHOME;
-        cp -f $AKHOME/kernel/G965/zImage-dtb $AKHOME;
+        cp -f $AKHOME/Kernel/G965/zImage $AKHOME;
+        cp -f $AKHOME/Kernel/G965/dtb.img $AKHOME;
         break 2;
       fi;
     done;
@@ -259,8 +259,8 @@ do_crownlte() {
     for devicename in $device $product $vendordevice $vendorproduct; do
       if [ "$devicename" == "crownlte" ]; then
         ui_print "Looking for crownlte kernel files...";
-        cp -f $AKHOME/kernel/N960/zImage $AKHOME;
-        cp -f $AKHOME/kernel/N960/zImage-dtb $AKHOME;
+        cp -f $AKHOME/Kernel/N960/zImage $AKHOME;
+        cp -f $AKHOME/Kernel/N960/dtb.img $AKHOME;
         break 2;
       fi;
     done;
